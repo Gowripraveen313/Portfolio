@@ -1,0 +1,156 @@
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { ExternalLink, Github, Server, Users, Layers, Gamepad2, Brain, Heart } from "lucide-react";
+
+const projects = [
+  {
+    title: "NoteVerse",
+    description:
+      "A full-stack, AI-powered knowledge management and notebook platform built using the complete MERN stack. Features comprehensive study tools, a localized multi-language UI, custom document uploads, and automatic notebook summaries triggered via Gemini API integration. Uses robust state management with Zustand and secure data fetching.",
+    tags: ["React.js", "Express.js", "Node.js", "MongoDB", "Gemini API Integration", "Zustand", "i18next"],
+    icon: Brain,
+    featured: true,
+    links: {
+      github: "https://github.com/Gowripraveen313/NoteVerse",
+      demo: null,
+    },
+  },
+  {
+    title: "Pet Adoption",
+    description:
+      "A responsive, full-stack pet adoption portal that digitally connects shelters and prospective adopters. Built on the MERN stack with JWT-based secure authentication and protected middleware access controls, utilizing a modular RESTful API architecture (Pet, Adoption, Admin, Auth) and optimized MongoDB NoSQL schemas.",
+    tags: ["React.js", "Express.js", "Node.js", "MongoDB", "JWT Auth", "RESTful API", "NoSQL optimization"],
+    icon: Heart,
+    featured: true,
+    links: {
+      github: "https://github.com/Gowripraveen313/Pet-Adoption",
+      demo: null,
+    },
+  },
+];
+
+const ProjectsSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section id="projects" className="py-24 relative" ref={ref}>
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="section-heading">
+            Featured <span className="text-gradient">Projects</span>
+          </h2>
+          <p className="section-subheading mx-auto">
+            Real-world applications focused on system design and backend logic
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              className="project-card"
+            >
+              <div className="p-6 md:p-8">
+                {/* Header */}
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="p-3 rounded-xl bg-primary/10 text-primary glow-effect-sm">
+                      <project.icon size={24} />
+                    </div>
+                    {project.featured && (
+                      <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary">
+                        Featured
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-2">
+                    {project.links.github && (
+                      <a
+                        href={project.links.github}
+                        className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github size={18} />
+                      </a>
+                    )}
+                    {project.links.demo && (
+                      <a
+                        href={project.links.demo}
+                        className="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink size={18} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => {
+                    const isSpecial = ["Full-Stack", "System Design", "Backend"].includes(tag);
+                    return (
+                      <span
+                        key={tag}
+                        className={`px-3 py-1 text-xs font-medium rounded-full bg-secondary text-muted-foreground ${
+                          isSpecial
+                            ? "hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transform-gpu hover:scale-105 hover:shadow-md transition-all duration-200"
+                            : "transition-colors"
+                        }`}
+                      >
+                        {tag}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Decorative gradient line */}
+              <div className="h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50" />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* More Projects CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-12 text-center"
+        >
+          <a
+            href="https://github.com/Gowripraveen313"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline inline-flex items-center gap-2"
+          >
+            <Github size={18} />
+            View All Projects on GitHub
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default ProjectsSection;
