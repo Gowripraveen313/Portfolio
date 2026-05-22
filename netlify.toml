@@ -20,8 +20,8 @@
     # Prevent browsers from MIME-sniffing the response away from the declared content-type
     X-Content-Type-Options = "nosniff"
     
-    # Protect against clickjacking attacks
-    X-Frame-Options = "DENY"
+    # Protect against clickjacking attacks while allowing same-origin framing (e.g., PDF viewer)
+    X-Frame-Options = "SAMEORIGIN"
     
     # Enable browser Cross-Site Scripting (XSS) filters
     X-XSS-Protection = "1; mode=block"
