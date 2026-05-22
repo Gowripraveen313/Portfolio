@@ -19,7 +19,7 @@ const ResumeModal = ({ isOpen, onOpenChange }: ResumeModalProps) => {
 
   const handleDownload = () => {
     toast.success("Download started!", {
-      description: "Gowri_Praveen_Resume.pdf has been downloaded to your device.",
+      description: "Resume.pdf has been downloaded to your device.",
     });
   };
 
@@ -62,7 +62,7 @@ const ResumeModal = ({ isOpen, onOpenChange }: ResumeModalProps) => {
               <Printer size={18} />
             </button>
             <a
-              href="/gowri_praveen_k_resume.pdf"
+              href="/Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center p-2 rounded-lg bg-secondary/40 hover:bg-secondary border border-border/60 text-muted-foreground hover:text-foreground transition-all duration-200"
@@ -71,8 +71,8 @@ const ResumeModal = ({ isOpen, onOpenChange }: ResumeModalProps) => {
               <ExternalLink size={18} />
             </a>
             <a
-              href="/gowri_praveen_k_resume.pdf"
-              download="Gowri_Praveen_Resume.pdf"
+              href="/Resume.pdf"
+              download="Resume.pdf"
               onClick={handleDownload}
               className="btn-primary py-2 px-4 text-xs md:text-sm flex items-center gap-2 hover:scale-105 shadow-md shadow-primary/10 transition-all duration-200"
               title="Download PDF"
@@ -89,7 +89,7 @@ const ResumeModal = ({ isOpen, onOpenChange }: ResumeModalProps) => {
           <div className="hidden md:block w-full h-full rounded-xl overflow-hidden border border-border/50 bg-secondary/10">
             <iframe
               ref={iframeRef}
-              src="/gowri_praveen_k_resume.pdf#toolbar=0"
+              src="/Resume.pdf#toolbar=0"
               title="Gowri Praveen K - Resume Viewer"
               className="w-full h-full border-none"
             />
@@ -108,7 +108,7 @@ const ResumeModal = ({ isOpen, onOpenChange }: ResumeModalProps) => {
             </div>
             <div className="flex flex-col w-full gap-2">
               <a
-                href="/gowri_praveen_k_resume.pdf"
+                href="/Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary w-full text-center py-3 flex items-center justify-center gap-2"
@@ -117,8 +117,8 @@ const ResumeModal = ({ isOpen, onOpenChange }: ResumeModalProps) => {
                 View Fullscreen
               </a>
               <a
-                href="/gowri_praveen_k_resume.pdf"
-                download="Gowri_Praveen_Resume.pdf"
+                href="/Resume.pdf"
+                download="Resume.pdf"
                 onClick={handleDownload}
                 className="btn-outline w-full text-center py-3 flex items-center justify-center gap-2 hover:bg-secondary"
               >
