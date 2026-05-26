@@ -19,7 +19,7 @@ const socials = [
   {
     name: "Website",
     icon: Globe,
-    href: "http://www.greatsiteaddress.com",
+    href: "https://gowripraveen.netlify.app/",
     color: "hover:text-white hover:bg-[#0284c7]",
   },
   {
@@ -139,7 +139,7 @@ const ContactSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                  className={`skill-card p-6 text-center group transition-all duration-300 ${social.color}`}
+                  className={`block skill-card p-6 text-center group transition-all duration-300 cursor-pointer ${social.color}`}
                 >
                   <social.icon className="w-8 h-8 mx-auto mb-3 transition-transform group-hover:scale-110" />
                   <span className="text-sm font-medium">{social.name}</span>
